@@ -19,7 +19,9 @@ maxplus: maxplus.tex
 clean:
 	$(LATEXMK_CMD) -C submodular.tex
 	$(LATEXMK_CMD) -C maxplus.tex
-	rm submodular.run.xml
-	rm maxplus.run.xml
-	rmdir _minted-submodular
-	rmdir _minted-maxplus
+	rm -f submodular.run.xml
+	rm -f maxplus.run.xml
+	rm -f submodular.bbl
+	rm -f maxplus.bbl
+	rm -rf _minted-submodular
+	rm -rf _minted-maxplus
