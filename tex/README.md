@@ -3,7 +3,7 @@
 ## ビルド
 
 ```sh
-$ ./make.sh
+$ make all
 ```
 
 * 参考
