@@ -3,18 +3,20 @@ name: gh-pages
 on: [push]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Build
+        uses: actions/checkout@v2
+        run: mkdir -p public
+        run: cd tex && make all && cd ..
+        run: mv tex/*.pdf public
+        run: ls public
 
-      - run: mkdir -p pages
-      - run: cd tex && make all && cd ..
-      - run: mv tex/*.pdf pages
-
-      - uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./pages
+          publish_dir: ./public
         if: github.ref == 'refs/heads/main'
