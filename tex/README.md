@@ -1,5 +1,8 @@
 # latex
 
+[![gh-pages](https://github.com/msk-ono/memo/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/msk-ono/memo/actions/workflows/gh-pages.yml)
+[![pages-build-deployment](https://github.com/msk-ono/memo/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/msk-ono/memo/actions/workflows/pages/pages-build-deployment)
+
 ## ビルド
 
 ```sh
