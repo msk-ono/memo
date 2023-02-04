@@ -10,10 +10,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build
-        run: mkdir -p public
-        run: cd tex && make all && cd ..
-        run: mv tex/*.pdf public
-        run: ls public
+        run: mkdir -p public \
+             cd tex && make all && cd .. \
+             mv tex/*.pdf public \
+             ls public
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
