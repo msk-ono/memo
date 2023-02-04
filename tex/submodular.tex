@@ -1,9 +1,77 @@
 \documentclass{classes/report}
 
 \begin{document}
+\title{劣モジュラ最適化}
+\maketitle
+\tableofcontents
 
-\section{劣モジュラ}
+\chapter{基礎}
 
-Hello world.
+\section{劣モジュラ関数の定義と具体例}
+
+\begin{tcolorbox}
+\begin{Def}[劣モジュラ関数　その１] \label{def:submodular-1}
+    $n$ 個の要素からなる有限集合 $V=\{1, \dots, n\}$ と、 $V$ を台集合とする集合関数 $f: 2^V \to \mathbb{R}$ を考える。
+    $V$ の任意の部分集合 $S, T \subset V$ について次の不等式が成立するとき、 $f$ を劣モジュラ関数と呼ぶ。
+    \begin{align}
+        f(S) + f(T) \ge f(S \cup T) + f(S \cap T) \label{eq:def-submodular}
+    \end{align}
+\end{Def}
+
+\begin{Def}[劣モジュラ関数　その２] \label{def:submodular-2}
+    $f$ と $V$ は先ほどと同じものとする。
+    $S \subset T$ を満たす $V$ の任意の部分集合 $S, T \subset V$ と $T$ に含まれない任意の要素 $i \in V - T$について次の不等式が成立するとき、 $f$ を劣モジュラ関数と呼ぶ。
+    \begin{align}
+        f(S \cup \{i\}) - f(S) \ge f(T \cup \{i\}) + f(T) \label{eq:diminishing-returns}
+    \end{align}
+\end{Def}
+
+\ref{eq:diminishing-returns} を限界効用逓減と言う。
+\end{tcolorbox}
+
+\begin{thm}[二つの定義の等価性]
+    劣モジュラ関数の二つの定義 \ref{def:submodular-1} と \ref{def:submodular-2} は等価である。
+\end{thm}
+
+\begin{proof}
+    \ref{eq:def-submodular} $\implies$ \ref{eq:diminishing-returns} について。
+    $S \subset T, i \in V - T$ とする。
+    \begin{align*}
+        &f(S \cup \{i\}) + f(T) \ge f((S \cup \{i\}) \cup T) + f((S \cup \{i\}) \cap T) \\
+        \implies &f(S \cup \{i\}) + f(T) \ge f(T \cup \{i\}) + f(S) \\
+        \implies &f(S \cup \{i\}) - f(S) \ge f(T \cup \{i\}) - f(T) \\
+    \end{align*}
+
+    \ref{eq:diminishing-returns} $\implies$ \ref{eq:def-submodular} について。
+    $S, T$ を $V$ の任意の部分集合とする。
+    $S \subset T$ の場合、\ref{eq:def-submodular} は自明である。
+    $S \not \subset T$ の場合を考える。
+    $\{i_1, \dots, i_m\} = S - T$ とする。
+    集合の増加列を考える：$S_j, T_j (j=0, \dots, m)$ 。
+    \begin{align*}
+        &S_0 = S \cap T , S_j = S_{j-1} \cup \{i_j\} \\
+        &T_0 = T        , T_j = T_{j-1} \cup \{i_j\}
+    \end{align*}
+    上の式の $j$ は $j=1, \dots, m$ とする。
+    $S_m = S, T_m = S \cup T$ が成立する。
+    また、 \ref{eq:diminishing-returns} より、$f(S_j) - f(S_{j-1}) \ge f(T_j) - f(T_{j-1})  (j=1, \dots, m)$ が成立する。
+    この式を足し合わせることで証明できる。
+    \begin{align*}
+        &f(S_m) - f(S_0) \ge f(T_m) - f(T_0) \\
+        \implies &f(S) - f(S \cap T) \ge f(S \cup T) - f(T) \\
+        \implies &f(S) + f(T) \ge f(S \cup T) + f(S \cap T)
+    \end{align*}
+\end{proof}
+
+\begin{tcolorbox}
+    \begin{eg}[カバー関数]
+    \end{eg}
+    \begin{eg}[グラフのカット関数]
+    \end{eg}
+    \begin{eg}[凹関数が生成する関数]
+    \end{eg}
+\end{tcolorbox}
+
+\chapter{劣モジュラ最適化}
 
 \end{document}
