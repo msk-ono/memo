@@ -31,6 +31,7 @@
 \usepackage{amsthm}
 \usepackage{ascmac}
 \usepackage{braket}
+\usepackage{url}
 
 \newtheoremstyle{mystyle}%   % スタイル名
     {}%                      % 上部スペース

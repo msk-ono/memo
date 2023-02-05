@@ -70,8 +70,72 @@
     \end{eg}
     \begin{eg}[凹関数が生成する関数]
     \end{eg}
+    \begin{eg}[Matroid rank functions]
+    \end{eg}
+    \begin{eg}[Entropy functions]
+    \end{eg}
 \end{tcolorbox}
 
+\section{劣モジュラ多面体と基多面体}
+
+$V=\{1, \dots, n\}, f: 2^V \to \mathbb{R}$ で、 $f$ は正規化された劣モジュラ関数とする
+（正規化とは $f(\{\})=0$ が成り立つ関数のこと）。
+$f$ を使って、 $\mathbb{R}^n$ に二つの凸多面体 $P(f), B(f)$ を定義できる。
+
+\begin{tcolorbox}
+    \begin{Def}[劣モジュラ多面体、基多面体]
+        $x=(x_1, \dots, x_n)$ を $n$ 次元の変数ベクトルとし、 $V$ の各部分集合を $S$ とする。
+        $x(S) = \sum_{i \in S} x_i$ として、
+        劣モジュラ多面体 (submodular polyhedron) $P(f)$ を次のように定義する。
+        \begin{align}
+            P(f) = \{ x \in \mathbb{R}^n | x(S) \le f(S), S \subset V \}
+        \end{align}
+        また、基多面体 (base polytope) $B(f)$ は次のように定義する。
+        \begin{align}
+            P(f) = \{ x \in P(f) | x(V) = f(V) \}
+        \end{align}
+    \end{Def}
+\end{tcolorbox}
+
+\begin{prop}
+    $B(f)$ は有界
+\end{prop}
+
+\begin{proof}
+    \begin{align*}
+        &x_i \le f(\{i\}) \\
+        &x(V-\{i\}) \le f(V-\{i\}) \iff x(V) - x_i \le f(V-\{i\}) \\
+        &x(V) = f(V) \\
+        \implies &f(V) - f(V-\{i\}) \le x_i \le f(\{i\})
+    \end{align*}
+\end{proof}
+
+\begin{prop}
+    $B(f)$ の端点と $P(f)$ の端点は一致する。
+\end{prop}
+
+集合 $V$ を並び替えた線形順序 (linear ordering) $L=(i_1, \dots, i_n)$ を考える。 $n!$ 通りある。
+この時、 $L$ に対応する基多面体 $B(f)$ の端点 $x^L$ を定めることができる。
+
+\section{ロヴァース拡張}
+
 \chapter{劣モジュラ最適化}
+
+\chapter{実装}
+
+\begin{itemize}
+    \item \url{https://github.com/OptMist-Tokyo/SubmodularFunctionMinimization}
+    \item \url{https://github.com/joschout/SubmodularMaximization}
+\end{itemize}
+
+\chapter{参考文献}
+
+\begin{itemize}
+    \item \url{https://proceedings.mlr.press/v119/breuer20a.html}
+    \item \url{https://fujiik.github.io/}
+    \item \url{https://viterbi-web.usc.edu/~shanghua/teaching/Fall2021-670/krause12survey.pdf}
+    \item \url{https://www.kurims.kyoto-u.ac.jp/preprint/file/RIMS1634.pdf}
+    \item \url{http://papers.neurips.cc/paper/6652-continuous-dr-submodular-maximization-structure-and-algorithms.pdf}
+\end{itemize}
 
 \end{document}
