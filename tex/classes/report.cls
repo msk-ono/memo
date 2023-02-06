@@ -51,6 +51,7 @@
 \newtheorem{ex}[thm]{問題}
 \newtheorem{rem}[thm]{注意}
 \newtheorem{prop}[thm]{命題}
+\newtheorem{algo}[thm]{アルゴリズム}
 \makeatletter
 \renewenvironment{proof}[1][\proofname]{\par
   \normalfont
