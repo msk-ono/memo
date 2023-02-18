@@ -1,4 +1,4 @@
 # md
 
-* [C++ の多様なライブラリをリストアップ](vcpkg.md)
-* [Optimization reference manual のメモ](opt_manual.md)
+* [Optimization reference manualのメモ](opt_manual.md)
+* [simd sort](simd_sort.md)
